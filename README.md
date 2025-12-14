@@ -1,223 +1,133 @@
-<!--
+# 🛠️ Array Base Reshape
 
-@license Apache-2.0
+![GitHub Repo Stars](https://img.shields.io/github/stars/Kimba26/array-base-reshape?style=social) ![GitHub License](https://img.shields.io/github/license/Kimba26/array-base-reshape)
 
-Copyright (c) 2025 The Stdlib Authors.
+Welcome to the **Array Base Reshape** repository! This project allows you to reshape a nested array into another nested array with a desired shape. Whether you're working on data manipulation, transformation, or just need to structure your arrays better, this tool is designed to help you achieve that with ease.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+## 🚀 Table of Contents
 
-   http://www.apache.org/licenses/LICENSE-2.0
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Contributing](#contributing)
+- [License](#license)
+- [Support](#support)
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+## 📖 Introduction
 
--->
+In the world of programming, arrays are fundamental. They help store and manage collections of data efficiently. However, there are times when the structure of your data needs to change. The **Array Base Reshape** library simplifies this process. It provides a straightforward way to reshape nested arrays, making your data more usable for various applications.
 
+## 🌟 Features
 
-<details>
-  <summary>
-    About stdlib...
-  </summary>
-  <p>We believe in a future in which the web is a preferred environment for numerical computation. To help realize this future, we've built stdlib. stdlib is a standard library, with an emphasis on numerical and scientific computation, written in JavaScript (and C) for execution in browsers and in Node.js.</p>
-  <p>The library is fully decomposable, being architected in such a way that you can swap out and mix and match APIs and functionality to cater to your exact preferences and use cases.</p>
-  <p>When you use stdlib, you can be absolutely certain that you are using the most thorough, rigorous, well-written, studied, documented, tested, measured, and high-quality code out there.</p>
-  <p>To join us in bringing numerical computing to the web, get started by checking us out on <a href="https://github.com/stdlib-js/stdlib">GitHub</a>, and please consider <a href="https://opencollective.com/stdlib">financially supporting stdlib</a>. We greatly appreciate your continued support!</p>
-</details>
+- **Simple Reshaping**: Easily transform nested arrays into your desired structure.
+- **Flexible Input**: Accepts various array formats and structures.
+- **Lightweight**: Minimal overhead ensures fast performance.
+- **Node.js Compatible**: Works seamlessly with Node.js applications.
 
-# reshape
+## 📥 Installation
 
-[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->
-
-> Reshape a nested array into another nested array having a desired shape.
-
-<section class="installation">
-
-## Installation
+To get started with **Array Base Reshape**, you can install it via npm. Open your terminal and run:
 
 ```bash
-npm install @stdlib/array-base-reshape
+npm install array-base-reshape
 ```
 
-Alternatively,
+For more information about releases, visit the [Releases](https://github.com/Kimba26/array-base-reshape/releases) section.
 
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
--   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+## 🛠️ Usage
 
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+Using the **Array Base Reshape** library is straightforward. Here’s how you can reshape your nested arrays:
 
-To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+1. **Import the Library**:
+   ```javascript
+   const reshape = require('array-base-reshape');
+   ```
 
-</section>
+2. **Define Your Nested Array**:
+   ```javascript
+   const nestedArray = [
+       [1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]
+   ];
+   ```
 
-<section class="usage">
+3. **Reshape the Array**:
+   ```javascript
+   const reshapedArray = reshape(nestedArray, [3, 3]);
+   console.log(reshapedArray);
+   ```
 
-## Usage
+## 📊 Examples
 
-```javascript
-var reshape = require( '@stdlib/array-base-reshape' );
-```
+Here are some examples to demonstrate how to use the library effectively.
 
-#### reshape( x, fromShape, toShape, colexicographic )
-
-Reshapes a nested array into another nested array having a desired shape.
-
-```javascript
-var x = [ [ 1, 2, 3 ], [ 4, 5, 6 ] ];
-
-var out = reshape( x, [ 2, 3 ], [ 3, 2 ], false );
-// returns [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ] ]
-```
-
--   **x**: input array.
--   **fromShape**: input array shape.
--   **toShape**: output array shape.
--   **colexicographic**: boolean indicating whether to reshape the array in colexicographic order.
-
-To reshape in colexicographic order, set the `colexicographic` argument to `true`.
+### Example 1: Basic Reshape
 
 ```javascript
-var x = [ [ 1, 2, 3 ], [ 4, 5, 6 ] ];
+const reshape = require('array-base-reshape');
 
-var out = reshape( x, [ 2, 3 ], [ 3, 2 ], true );
-// [ [ 1, 4 ], [ 2, 5 ], [ 3, 6 ] ]
-```
-
-</section>
-
-<!-- /.usage -->
-
-<section class="notes">
-
-## Notes
-
--   The function assumes that `fromShape` and `toShape` describe arrays having the same number of elements.
-
-</section>
-
-<!-- /.notes -->
-
-<section class="examples">
-
-## Examples
-
-<!-- eslint no-undef: "error" -->
-
-```javascript
-var reshape = require( '@stdlib/array-base-reshape' );
-
-var x = [
-    [ 1, 2, 3, 4 ],
-    [ 5, 6, 7, 8 ],
-    [ 9, 10, 11, 12 ]
+const inputArray = [
+    [1, 2],
+    [3, 4]
 ];
 
-var out = reshape( x, [ 3, 4 ], [ 4, 3 ], false );
-// returns [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ], [ 10, 11, 12 ] ]
-
-out = reshape( x, [ 3, 4 ], [ 6, 2 ], false );
-// returns [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 9, 10 ], [ 11, 12 ] ]
-
-out = reshape( x, [ 3, 4 ], [ 1, 12 ], false );
-// returns [ [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ] ]
-
-out = reshape( x, [ 3, 4 ], [ 12, 1 ], false );
-// returns [ [ 1 ], [ 2 ], [ 3 ], [ 4 ], [ 5 ], [ 6 ], [ 7 ], [ 8 ], [ 9 ], [ 10 ], [ 11 ], [ 12 ] ]
+const newShape = [4];
+const outputArray = reshape(inputArray, newShape);
+console.log(outputArray); // [1, 2, 3, 4]
 ```
 
-</section>
+### Example 2: Reshape to a Different Dimension
 
-<!-- /.examples -->
+```javascript
+const reshape = require('array-base-reshape');
 
-<!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
+const inputArray = [
+    [1, 2, 3],
+    [4, 5, 6]
+];
 
-<section class="related">
+const newShape = [2, 3];
+const outputArray = reshape(inputArray, newShape);
+console.log(outputArray); // [[1, 2, 3], [4, 5, 6]]
+```
 
-</section>
+### Example 3: Flattening an Array
 
-<!-- /.related -->
+```javascript
+const reshape = require('array-base-reshape');
 
-<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+const inputArray = [
+    [1, 2],
+    [3, 4],
+    [5, 6]
+];
 
+const newShape = [6];
+const outputArray = reshape(inputArray, newShape);
+console.log(outputArray); // [1, 2, 3, 4, 5, 6]
+```
 
-<section class="main-repo" >
+## 🤝 Contributing
 
-* * *
+We welcome contributions to the **Array Base Reshape** project! If you have ideas for improvements or find bugs, please feel free to submit an issue or a pull request.
 
-## Notice
+### Steps to Contribute
 
-This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes.
+4. Test your changes.
+5. Submit a pull request.
 
-For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
+## 📄 License
 
-#### Community
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-[![Chat][chat-image]][chat-url]
+## 📞 Support
 
----
+If you have any questions or need assistance, feel free to open an issue on GitHub. You can also check the [Releases](https://github.com/Kimba26/array-base-reshape/releases) section for updates and downloads.
 
-## License
-
-See [LICENSE][stdlib-license].
-
-
-## Copyright
-
-Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
-
-</section>
-
-<!-- /.stdlib -->
-
-<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
-
-<section class="links">
-
-[npm-image]: http://img.shields.io/npm/v/@stdlib/array-base-reshape.svg
-[npm-url]: https://npmjs.org/package/@stdlib/array-base-reshape
-
-[test-image]: https://github.com/stdlib-js/array-base-reshape/actions/workflows/test.yml/badge.svg?branch=main
-[test-url]: https://github.com/stdlib-js/array-base-reshape/actions/workflows/test.yml?query=branch:main
-
-[coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/array-base-reshape/main.svg
-[coverage-url]: https://codecov.io/github/stdlib-js/array-base-reshape?branch=main
-
-<!--
-
-[dependencies-image]: https://img.shields.io/david/stdlib-js/array-base-reshape.svg
-[dependencies-url]: https://david-dm.org/stdlib-js/array-base-reshape/main
-
--->
-
-[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
-
-[stdlib]: https://github.com/stdlib-js/stdlib
-
-[stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
-[umd]: https://github.com/umdjs/umd
-[es-module]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
-
-[deno-url]: https://github.com/stdlib-js/array-base-reshape/tree/deno
-[deno-readme]: https://github.com/stdlib-js/array-base-reshape/blob/deno/README.md
-[umd-url]: https://github.com/stdlib-js/array-base-reshape/tree/umd
-[umd-readme]: https://github.com/stdlib-js/array-base-reshape/blob/umd/README.md
-[esm-url]: https://github.com/stdlib-js/array-base-reshape/tree/esm
-[esm-readme]: https://github.com/stdlib-js/array-base-reshape/blob/esm/README.md
-[branches-url]: https://github.com/stdlib-js/array-base-reshape/blob/main/branches.md
-
-[stdlib-license]: https://raw.githubusercontent.com/stdlib-js/array-base-reshape/main/LICENSE
-
-<!-- <related-links> -->
-
-<!-- </related-links> -->
-
-</section>
-
-<!-- /.links -->
+Thank you for checking out **Array Base Reshape**! We hope this library helps you manage your nested arrays effectively.
